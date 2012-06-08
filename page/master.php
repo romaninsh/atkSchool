@@ -6,14 +6,14 @@ class page_master extends page
     {
         parent::init();
         $tabs=$this->add('Tabs');
-        //$crud=
+
         $tabs->addTabURL('master_session',"Sessions");
+        $tabs->addTabURL('master_class','Classes');
         $tabs->addTabURL('master_scholar',"Scholars");
-        $tabs->addTabURL('master_student',"Student");
-        $tabs->addTab('Hostel')->add('CRUD')->setModel('Hostel');
-        $tabs->addTabURL('master_class','Class');
-        $tabs->addTabURL('master_fee','Fee');
-        $tabs->addTab('Exam')->add('CRUD')->setModel('Exam');
+//        $tabs->addTabURL('master_student',"Student");
+//        $tabs->addTab('Hostel')->add('CRUD')->setModel('Hostel');
+//        $tabs->addTabURL('master_fee','Fee');
+//        $tabs->addTab('Exam')->add('CRUD')->setModel('Exam');
  //       $crud->setModel('Session');
 //        if($crud->grid){
 //            $crud->grid->addColumn("button","set_session");

@@ -7,8 +7,11 @@ function init()
     parent::init();
     $btn_class_master=$this->add('Button','class_master')->set('Class Master');
     $btn_subject_master=$this->add('Button','subject_master')->set('Subject Master');
-    $btn_student_list=$this->add('Button','student_list')->set('Student List ');
-    $btn_attendance= $this->add('Button','Attendance')->set('Attendance');
+    $btn_class_subject_mapper=$this->add('Button','class_subject_mapping')->set('Class Subject Mapping');
+    $msg=$this->add('H1');
+    $btn_class_subject_mapper->js('click')->univ()->errorMessage("To be solved as issue one on git hub");
+            
+//    $btn_attendance= $this->add('Button','Attendance')->set('Attendance');
  //------------------------------------------------------------------------------------------
     $f_class_master=$this->add('Form');
     $f_class_master->js(true)->hide();

@@ -18,6 +18,7 @@ class page_master_scholar extends Page {
     }
    
     function page_master_scholar_details(){
+        $this->add('H1')->set("This is Mazor ... How to add/edit current class for this scholar for CURRENT SESSION HERE");
         $f=$this->add('MVCForm');
         $f->setModel('Scholar')->load($_GET['scholars_master_id']);
         $f->addSubmit("Update Scholars details");
