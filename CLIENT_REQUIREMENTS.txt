@@ -1,3 +1,9 @@
+OLD AND NOT USED FILE AS WIKI IS CREATED FOR THE SAME NOW AT
+https://github.com/xavocinternational/atkSchool/wiki
+
+
+
+
 Hi, this file contains what client says to us. Their sugessions and/or changes 
 
 In start we have to create a school application which is
