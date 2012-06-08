@@ -1,0 +1,28 @@
+Hi, this file contains what client says to us. Their sugessions and/or changes 
+
+In start we have to create a school application which is
+
+1) multi user with various user rights to access pages
+2) scholar details
+3) Fee management 
+4) Hostel Management
+5) Hostel inout with guardians information
+6) Exams and subjects management where there can be variable exams for each class 
+
+Current Implementation :::
+
+
+:::::Tables::::::
+1) session_master(id,name,iscurrent) //Stores years as session
+2) class_master (id,name)
+3) scholar_master (id,name,father_name, scholar_number...)
+4) student (id, scholar_no,class_id,session_id)
+
+:: terms ::
+session:: it is a year ie '2011-2012', '2012-2013' etc.
+scholar:: is the candidate who joins the school but not associated with any class, with a fixed scholar number.
+Student:: is a scholar associated with a class in a perticular session
+
+Now what is required
+
+I want to Add/Edit (CRUD) a scholar but at the same time I want to enter/EDIT its current class in which it is enrolling for current session
