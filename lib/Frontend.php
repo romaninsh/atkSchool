@@ -51,11 +51,11 @@ class Frontend extends ApiFrontend {
         $this->add('Menu',null,'Menu')
             ->addMenuItem('master','Master')    
             ->addMenuItem('index','Welcome')
-            ->addMenuItem('examples','Examples')
-            ->addMenuItem('how','How Do I..?')
-            ->addMenuItem('dbtest','Database Test')
-            ->addMenuItem('authtest','Auth test')
-            ->addMenuItem('logout')
+//            ->addMenuItem('examples','Examples')
+//            ->addMenuItem('how','How Do I..?')
+//            ->addMenuItem('dbtest','Database Test')
+//            ->addMenuItem('authtest','Auth test')
+//            ->addMenuItem('logout')
             ;
 
         $this->addLayout('UserMenu');
