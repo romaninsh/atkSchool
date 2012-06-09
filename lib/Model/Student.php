@@ -14,6 +14,6 @@ class Model_Student extends Model_Table {
         parent::init();
         $this->addField('roll_no')->type('int')->caption('roll number');
         $this->addField('ishostler')->type('boolean')->defaultValue(false)->caption("Is Hostler");
-        $this->hasOne('Scholar','student.scholar_id','id');
+        $this->hasOne('Scholar','scholar_id','id');
    }
 }

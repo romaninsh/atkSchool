@@ -12,9 +12,9 @@ class Model_Class extends Model_Table
     function init()
     {
         parent::init();
-        $this->addField('name')->mandatory("Please give a class name")->caption('Class Name');
+        $this->addField('class_name','name')->mandatory("Please give a class name")->caption('Class Name');
         $this->addField('section')->mandatory('give a class name');
-        
+        $this->addExpression('name')->set('(concat(name,concat(" - ",section)))');
                 
     }
 }

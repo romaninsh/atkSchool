@@ -6,24 +6,49 @@
  */
 
 class page_master_scholar extends Page {
-    function initMainPage(){
+
+    function initMainpage() {
         parent::init();
-        $crud=$this->add('CRUD');
-        $crud->setModel('Scholar',null,array('scholar_no','name'));
-       if($crud->grid){
-            $crud->grid->addColumn('expander','master_scholar_details');
-            $crud->grid->addQuickSearch(array('name','scholar_no'));
+        // $crud=$this->add('CRUD',array('allow_add'=>false));
+
+        $crud = $this->add('CRUD');
+        $m = $this->add('Model_Scholar_Current');
+        $m->addCondition('session_id', $this->add('Model_Session_Current')->dsql()->field('id'));
+        $crud->setModel($m, null, array('name', 'scholar_no', 'class'));
+        if ($crud->grid) {
+            $crud->grid->addButton('Enroll Existing scholar')->js('click')->univ()->frameURL('Associate Existing Student For Current Session', $this->api->url('./enroll'));
+            $crud->grid->addColumn('expander', 'master_scholar_details');
+            $crud->grid->addQuickSearch(array('name', 'scholar_no', 'class'));
         }
-        
     }
-   
-    function page_master_scholar_details(){
+
+    function page_master_scholar_details() {
+        $m = $this->add('Model_Scholar_Current');
+        $m->addCondition('session_id', $this->add('Model_Session_Current')->dsql()->field('id'));
         $this->add('H1')->set("This is Mazor ... How to add/edit current class for this scholar for CURRENT SESSION HERE");
-        $f=$this->add('MVCForm');
-        $f->setModel('Scholar')->load($_GET['scholars_master_id']);
+        $f = $this->add('MVCForm');
+        $f->setModel($m)->load($_GET['scholars_master_id']);
         $f->addSubmit("Update Scholars details");
-        if($f->isSubmitted()){
+        if ($f->isSubmitted()) {
             $f->update();
         }
+//        $crud=$this->add('CRUD');
+//        $crud->setModel('Student');
     }
+
+    function page_enroll() {
+
+        $m = $this->add('Model_Student');
+        $m->hasOne('Class', 'class_id');
+        $m->hasOne('Session', 'session_id');  // if you want to enroll only into current session, use addCondition with the exact ID instead
+        $m->addCondition('session_id',$this->add('Model_Session_Current')->dsql()->field('id'));
+        
+        $f = $this->add('Form');
+        
+        $f->setModel($m);
+        $f->addSubmit();
+        if ($f->isSubmitted())
+            $f->update()->univ()->successMessage('Enrolled')->closeDialog()->execute();
+    }
+
 }

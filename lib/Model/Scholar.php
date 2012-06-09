@@ -14,7 +14,7 @@ class Model_Scholar extends Model_Table{
         $this->addField('contact')->mandatory("Required Field");
         $this->addField('p_address')->mandatory("Required Field")->caption('Permanent Address');
         $this->addField('l_address')->caption('Local Address');
-        $this->addField('sex');
+        $this->addField('sex')->type('radio')->listData(array("M"=>"M","F"=>"F"))->defaultValue('M');
         $this->addField('category');
         $this->addField('guardian1_name');
         $this->addField('guardian2_name');
