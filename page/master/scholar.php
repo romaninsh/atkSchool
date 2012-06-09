@@ -40,11 +40,11 @@ class page_master_scholar extends Page {
 
         $m = $this->add('Model_Student');
         $m->hasOne('Class', 'class_id');
-        $m->hasOne('Session', 'session_id');  // if you want to enroll only into current session, use addCondition with the exact ID instead
-        $m->addCondition('session_id',$this->add('Model_Session_Current')->dsql()->field('id'));
-        
+        $m->hasOne('Session', 'session_id');
+        $m->addCondition('session_id', $this->add('Model_Session_Current')->dsql()->field('id'));
+
         $f = $this->add('Form');
-        
+
         $f->setModel($m);
         $f->addSubmit();
         if ($f->isSubmitted())

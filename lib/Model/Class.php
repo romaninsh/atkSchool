@@ -14,7 +14,7 @@ class Model_Class extends Model_Table
         parent::init();
         $this->addField('class_name','name')->mandatory("Please give a class name")->caption('Class Name');
         $this->addField('section')->mandatory('give a class name');
-        $this->addExpression('name')->set('(concat(name,concat(" - ",section)))');
+        $this->addExpression('name')->set('(concat(name," - ",section))');
                 
     }
 }

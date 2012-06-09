@@ -25,7 +25,7 @@ class Model_Scholar extends Model_Table{
         $this->addField('student_image')->type('image');
         $this->addField("isActive")->type('boolean')->mandatory("Is This Active")->defaultValue(true);
         
-        $this->addExpression('name')->set('concat(fname,lname)');
+        $this->addExpression('name')->set('concat(fname," ",lname)');
         
         
  //       if(!$all) $this->addCondition('isActive',true);
