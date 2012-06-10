@@ -16,13 +16,6 @@ class Model_Scholar extends Model_Table{
         $this->addField('l_address')->caption('Local Address');
         $this->addField('sex')->type('radio')->listData(array("M"=>"M","F"=>"F"))->defaultValue('M');
         $this->addField('category');
-        $this->addField('guardian1_name');
-        $this->addField('guardian2_name');
-        $this->addField('guardian3_name');
-        $this->addField('guardian1_image')->type('image');
-        $this->addField('guardian2_image')->type('image');
-        $this->addField('guardian3_image')->type('image');
-        $this->addField('student_image')->type('image');
         $this->addField("isActive")->type('boolean')->mandatory("Is This Active")->defaultValue(true);
         
         $this->addExpression('name')->set('concat(fname," ",lname)');

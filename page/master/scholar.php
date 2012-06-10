@@ -13,12 +13,13 @@ class page_master_scholar extends Page {
 
         $crud = $this->add('CRUD');
         $m = $this->add('Model_Scholar_Current');
-        $m->addCondition('session_id', $this->add('Model_Session_Current')->dsql()->field('id'));
         $crud->setModel($m, null, array('name', 'scholar_no', 'class'));
+
         if ($crud->grid) {
-            $crud->grid->addButton('Enroll Existing scholar')->js('click')->univ()->frameURL('Associate Existing Student For Current Session', $this->api->url('./enroll'));
+            $crud->grid->addButton('Enroll Existing scholar in This Session')->js('click')->univ()->frameURL('Associate Existing Student For Current Session', $this->api->url('./enroll'));
             $crud->grid->addColumn('expander', 'master_scholar_details');
             $crud->grid->addQuickSearch(array('name', 'scholar_no', 'class'));
+            $crud->add_button->set("Add New Scholar");
         }
     }
 

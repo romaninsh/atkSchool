@@ -9,7 +9,7 @@ class page_master extends page
 
         $tabs->addTabURL('master_session',"Sessions");
         $tabs->addTabURL('master_class','Classes');
-        $tabs->addTabURL('master_scholar',"Scholars");
+        $tabs->addTabURL('master_scholar',"Current Scholars");
 //        $tabs->addTabURL('master_student',"Student");
 //        $tabs->addTab('Hostel')->add('CRUD')->setModel('Hostel');
 //        $tabs->addTabURL('master_fee','Fee');
