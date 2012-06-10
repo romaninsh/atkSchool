@@ -14,6 +14,14 @@ class page_master_scholar extends Page {
         $crud = $this->add('CRUD');
         $m = $this->add('Model_Scholar_Current');
         $crud->setModel($m, null, array('name', 'scholar_no', 'class'));
+        if($crud->form){
+            // make form flow in 2 columns
+            $crud->form->setFormClass('stacked atk-row');
+            $o=$crud->form->add('Order')
+                ->move($crud->form->addSeparator('noborder span6'),'first')
+                ->move($crud->form->addSeparator('noborder span5'),'middle')
+                ->now();
+        }
 
         if ($crud->grid) {
             $crud->grid->addButton('Enroll Existing scholar in This Session')->js('click')->univ()->frameURL('Associate Existing Student For Current Session', $this->api->url('./enroll'));
