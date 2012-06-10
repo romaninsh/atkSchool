@@ -17,6 +17,8 @@ class Model_Subject extends Model_Table {
         $this->addField('code');
         $this->addField('max_marks')->type('int');
         $this->addField('pass_marks')->type('int');
+
+        $this->hasMany('SubjectClassMap','subject_id');
         
 
     }
